@@ -25,8 +25,6 @@ Partial Class FrmMain
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMain))
         Me.lbl = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblShowVolt = New System.Windows.Forms.Label()
-        Me.lblShowCapacity = New System.Windows.Forms.Label()
         Me.gbMain = New System.Windows.Forms.GroupBox()
         Me.txtVoltage = New System.Windows.Forms.TextBox()
         Me.lbConfigs = New System.Windows.Forms.ListBox()
@@ -43,8 +41,6 @@ Partial Class FrmMain
         Me.txtWeight = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtConfig = New System.Windows.Forms.TextBox()
-        Me.txtSeries = New System.Windows.Forms.TextBox()
-        Me.txtParallel = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtHeight = New System.Windows.Forms.TextBox()
         Me.MsFile = New System.Windows.Forms.ToolStripMenuItem()
@@ -52,10 +48,6 @@ Partial Class FrmMain
         Me.MsExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.MsMain = New System.Windows.Forms.MenuStrip()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
-        Me.btnParallelDown = New System.Windows.Forms.Button()
-        Me.btnParallelUp = New System.Windows.Forms.Button()
-        Me.btnSeriesDown = New System.Windows.Forms.Button()
-        Me.btnSeriesUp = New System.Windows.Forms.Button()
         Me.txtCellCount = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtCellCost = New System.Windows.Forms.TextBox()
@@ -66,8 +58,12 @@ Partial Class FrmMain
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.numSeries = New System.Windows.Forms.NumericUpDown()
+        Me.numParallel = New System.Windows.Forms.NumericUpDown()
         Me.MsMain.SuspendLayout()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numSeries, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numParallel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl
@@ -87,24 +83,6 @@ Partial Class FrmMain
         Me.Label2.Size = New System.Drawing.Size(44, 13)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Parallel:"
-        '
-        'lblShowVolt
-        '
-        Me.lblShowVolt.AutoSize = True
-        Me.lblShowVolt.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.lblShowVolt.Location = New System.Drawing.Point(118, 31)
-        Me.lblShowVolt.Name = "lblShowVolt"
-        Me.lblShowVolt.Size = New System.Drawing.Size(0, 13)
-        Me.lblShowVolt.TabIndex = 4
-        '
-        'lblShowCapacity
-        '
-        Me.lblShowCapacity.AutoSize = True
-        Me.lblShowCapacity.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.lblShowCapacity.Location = New System.Drawing.Point(118, 55)
-        Me.lblShowCapacity.Name = "lblShowCapacity"
-        Me.lblShowCapacity.Size = New System.Drawing.Size(0, 13)
-        Me.lblShowCapacity.TabIndex = 5
         '
         'gbMain
         '
@@ -272,22 +250,6 @@ Partial Class FrmMain
         Me.txtConfig.TabIndex = 40
         Me.txtConfig.TabStop = False
         '
-        'txtSeries
-        '
-        Me.txtSeries.Location = New System.Drawing.Point(57, 27)
-        Me.txtSeries.Name = "txtSeries"
-        Me.txtSeries.Size = New System.Drawing.Size(41, 20)
-        Me.txtSeries.TabIndex = 1
-        Me.txtSeries.Text = "1"
-        '
-        'txtParallel
-        '
-        Me.txtParallel.Location = New System.Drawing.Point(57, 52)
-        Me.txtParallel.Name = "txtParallel"
-        Me.txtParallel.Size = New System.Drawing.Size(41, 20)
-        Me.txtParallel.TabIndex = 5
-        Me.txtParallel.Text = "1"
-        '
         'Label9
         '
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -352,54 +314,6 @@ Partial Class FrmMain
         Me.pbLogo.Size = New System.Drawing.Size(258, 100)
         Me.pbLogo.TabIndex = 26
         Me.pbLogo.TabStop = False
-        '
-        'btnParallelDown
-        '
-        Me.btnParallelDown.BackgroundImage = CType(resources.GetObject("btnParallelDown.BackgroundImage"), System.Drawing.Image)
-        Me.btnParallelDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnParallelDown.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnParallelDown.Location = New System.Drawing.Point(98, 61)
-        Me.btnParallelDown.Name = "btnParallelDown"
-        Me.btnParallelDown.Size = New System.Drawing.Size(14, 10)
-        Me.btnParallelDown.TabIndex = 16
-        Me.btnParallelDown.TabStop = False
-        Me.btnParallelDown.UseVisualStyleBackColor = True
-        '
-        'btnParallelUp
-        '
-        Me.btnParallelUp.BackgroundImage = CType(resources.GetObject("btnParallelUp.BackgroundImage"), System.Drawing.Image)
-        Me.btnParallelUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnParallelUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnParallelUp.Location = New System.Drawing.Point(98, 52)
-        Me.btnParallelUp.Name = "btnParallelUp"
-        Me.btnParallelUp.Size = New System.Drawing.Size(14, 10)
-        Me.btnParallelUp.TabIndex = 15
-        Me.btnParallelUp.TabStop = False
-        Me.btnParallelUp.UseVisualStyleBackColor = True
-        '
-        'btnSeriesDown
-        '
-        Me.btnSeriesDown.BackgroundImage = CType(resources.GetObject("btnSeriesDown.BackgroundImage"), System.Drawing.Image)
-        Me.btnSeriesDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSeriesDown.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSeriesDown.Location = New System.Drawing.Point(98, 36)
-        Me.btnSeriesDown.Name = "btnSeriesDown"
-        Me.btnSeriesDown.Size = New System.Drawing.Size(14, 10)
-        Me.btnSeriesDown.TabIndex = 14
-        Me.btnSeriesDown.TabStop = False
-        Me.btnSeriesDown.UseVisualStyleBackColor = True
-        '
-        'btnSeriesUp
-        '
-        Me.btnSeriesUp.BackgroundImage = CType(resources.GetObject("btnSeriesUp.BackgroundImage"), System.Drawing.Image)
-        Me.btnSeriesUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSeriesUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSeriesUp.Location = New System.Drawing.Point(98, 27)
-        Me.btnSeriesUp.Name = "btnSeriesUp"
-        Me.btnSeriesUp.Size = New System.Drawing.Size(14, 10)
-        Me.btnSeriesUp.TabIndex = 13
-        Me.btnSeriesUp.TabStop = False
-        Me.btnSeriesUp.UseVisualStyleBackColor = True
         '
         'txtCellCount
         '
@@ -492,11 +406,33 @@ Partial Class FrmMain
         Me.Label13.TabIndex = 40
         Me.Label13.Text = "Cost / Cell:"
         '
+        'numSeries
+        '
+        Me.numSeries.Location = New System.Drawing.Point(90, 28)
+        Me.numSeries.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
+        Me.numSeries.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.numSeries.Name = "numSeries"
+        Me.numSeries.Size = New System.Drawing.Size(90, 20)
+        Me.numSeries.TabIndex = 1
+        Me.numSeries.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'numParallel
+        '
+        Me.numParallel.Location = New System.Drawing.Point(90, 54)
+        Me.numParallel.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
+        Me.numParallel.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.numParallel.Name = "numParallel"
+        Me.numParallel.Size = New System.Drawing.Size(90, 20)
+        Me.numParallel.TabIndex = 3
+        Me.numParallel.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(691, 668)
+        Me.Controls.Add(Me.numParallel)
+        Me.Controls.Add(Me.numSeries)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.txtArrangement)
@@ -515,17 +451,11 @@ Partial Class FrmMain
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.pbLogo)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.btnParallelDown)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.btnParallelUp)
         Me.Controls.Add(Me.txtVoltage)
-        Me.Controls.Add(Me.btnSeriesDown)
         Me.Controls.Add(Me.txtConfig)
-        Me.Controls.Add(Me.btnSeriesUp)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.txtParallel)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtSeries)
         Me.Controls.Add(Me.txtHeight)
         Me.Controls.Add(Me.cbShowConnections)
         Me.Controls.Add(Me.Label3)
@@ -533,8 +463,6 @@ Partial Class FrmMain
         Me.Controls.Add(Me.lbConfigs)
         Me.Controls.Add(Me.MsMain)
         Me.Controls.Add(Me.gbMain)
-        Me.Controls.Add(Me.lblShowCapacity)
-        Me.Controls.Add(Me.lblShowVolt)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lbl)
         Me.DoubleBuffered = True
@@ -547,14 +475,14 @@ Partial Class FrmMain
         Me.MsMain.ResumeLayout(False)
         Me.MsMain.PerformLayout()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numSeries, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numParallel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents lbl As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents lblShowVolt As Label
-    Friend WithEvents lblShowCapacity As Label
     Friend WithEvents gbMain As GroupBox
     Friend WithEvents lbConfigs As ListBox
     Friend WithEvents txtVoltage As TextBox
@@ -571,14 +499,8 @@ Partial Class FrmMain
     Friend WithEvents txtWeight As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents txtConfig As TextBox
-    Friend WithEvents txtSeries As TextBox
-    Friend WithEvents txtParallel As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents txtHeight As TextBox
-    Friend WithEvents btnSeriesUp As Button
-    Friend WithEvents btnSeriesDown As Button
-    Friend WithEvents btnParallelDown As Button
-    Friend WithEvents btnParallelUp As Button
     Friend WithEvents MsFile As ToolStripMenuItem
     Friend WithEvents MsExit As ToolStripMenuItem
     Friend WithEvents MsMain As MenuStrip
@@ -594,4 +516,6 @@ Partial Class FrmMain
     Friend WithEvents Label10 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
+    Friend WithEvents numSeries As NumericUpDown
+    Friend WithEvents numParallel As NumericUpDown
 End Class

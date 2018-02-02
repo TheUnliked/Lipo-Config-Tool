@@ -12,17 +12,15 @@ Public Class FrmMain
     Private Sub Start()
         'INIT
         If Not canProcess Then Exit Sub
-        If txtSeries.TextLength = 0 Or txtParallel.TextLength = 0 Then Exit Sub
-        '   numudSeries.Enabled = False
-        '   numudParallel.Enabled = False
+        If numSeries.Text = "" OrElse numParallel.Text = "" Then Exit Sub
+
         gbMain.Controls.Clear() 'clear all cells inside group box
         lbConfigs.Items.Clear()
         displayDataList.Clear()
         listWidth.Clear()
         listLength.Clear()
 
-        parallelVal = txtParallel.Text 'load values
-        seriesVal = txtSeries.Text
+
 
         'GET LIST OF DIMENSIONS
         Dim comb As New List(Of Integer)
@@ -232,83 +230,19 @@ Public Class FrmMain
         End If
     End Sub
 
-    Private Sub txtSeries_TextChanged(sender As Object, e As EventArgs) Handles txtSeries.TextChanged
-
-        If Val(txtSeries.Text) > 100 Then
-            txtSeries.Text = 99
-            txtSeries.SelectionStart = txtSeries.TextLength
-        End If
-
-
-        If Not txtSeries.TextLength = 0 AndAlso Not IsNumeric(txtSeries.Text.Substring(txtSeries.TextLength - 1, 1)) Then
-
-            txtSeries.Text = txtSeries.Text.Substring(0, txtSeries.TextLength - 1)
-            txtSeries.SelectionStart = txtSeries.TextLength
-        End If
-
-        If String.IsNullOrWhiteSpace(txtSeries.Text) OrElse txtSeries.Text = 0 Then
-            txtSeries.Text = 1
-            txtSeries.SelectionStart = txtSeries.TextLength
-            lblShowVolt.Text = 3.7 * txtSeries.Text & "V"
-        Else
-            lblShowVolt.Text = 3.7 * txtSeries.Text & "V"
-        End If
-
+    Private Sub numSeries_ValueChanged(sender As Object, e As EventArgs) Handles numSeries.ValueChanged
+        seriesVal = numSeries.Value
         Start()
     End Sub
 
-    Private Sub txtParallel_TextChanged(sender As Object, e As EventArgs) Handles txtParallel.TextChanged
-
-        If Val(txtParallel.Text) > 100 Then
-            txtParallel.Text = 99
-            txtParallel.SelectionStart = txtParallel.TextLength
-        End If
-        If Not txtParallel.TextLength = 0 AndAlso Not IsNumeric(txtParallel.Text.Substring(txtParallel.TextLength - 1, 1)) Then
-            txtParallel.Text = txtParallel.Text.Substring(0, txtParallel.TextLength - 1)
-            txtParallel.SelectionStart = txtParallel.TextLength
-        End If
-        If String.IsNullOrWhiteSpace(txtParallel.Text) OrElse txtParallel.Text = 0 Then
-            txtParallel.Text = 1
-            txtParallel.SelectionStart = txtParallel.TextLength
-            lblShowCapacity.Text = 3500 * Val(txtParallel.Text) & "mAh"
-        Else
-            lblShowCapacity.Text = 3500 * Val(txtParallel.Text) & "mAh"
-        End If
-
+    Private Sub numParallel_ValueChanged(sender As Object, e As EventArgs) Handles numParallel.ValueChanged
+        parallelVal = numParallel.Value
         Start()
     End Sub
 
-    Private Sub btnSeriesUp_Click(sender As Object, e As EventArgs) Handles btnSeriesUp.Click
-        txtSeries.Text = Val(txtSeries.Text) + 1
-        lbConfigs.Focus()
-    End Sub
-
-    Private Sub btnSeriesDown_Click(sender As Object, e As EventArgs) Handles btnSeriesDown.Click
-        If Not txtSeries.Text = 1 Then txtSeries.Text = txtSeries.Text - 1
-        lbConfigs.Focus()
-    End Sub
-
-    Private Sub btnParallelUp_Click(sender As Object, e As EventArgs) Handles btnParallelUp.Click
-        txtParallel.Text = Val(txtParallel.Text) + 1
-        lbConfigs.Focus()
-    End Sub
-
-    Private Sub btnParallelDown_Click(sender As Object, e As EventArgs) Handles btnParallelDown.Click
-        If Not txtParallel.Text = 1 Then txtParallel.Text = txtParallel.Text - 1
-        lbConfigs.Focus()
-    End Sub
-
-    Private Sub txtSeries_Click(sender As Object, e As EventArgs) Handles txtSeries.Click
-        txtSeries.SelectAll()
-    End Sub
-
-    Private Sub txtParallel_Click(sender As Object, e As EventArgs) Handles txtParallel.Click
-        txtParallel.SelectAll()
-    End Sub
-
-    Private Sub txtSeries_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSeries.KeyDown
+    Private Sub txtSeries_KeyDown(sender As Object, e As KeyEventArgs)
         If e.KeyCode = Keys.Tab Then
-            txtParallel.SelectAll()
+            numParallel.Select(0, numParallel.Text.Length - 1)
         End If
 
     End Sub
