@@ -126,6 +126,7 @@ Partial Class FrmMain
         Me.txtVoltage.ReadOnly = True
         Me.txtVoltage.Size = New System.Drawing.Size(180, 20)
         Me.txtVoltage.TabIndex = 45
+        Me.txtVoltage.TabStop = False
         '
         'lbConfigs
         '
@@ -145,6 +146,7 @@ Partial Class FrmMain
         Me.txtCapacity.ReadOnly = True
         Me.txtCapacity.Size = New System.Drawing.Size(180, 20)
         Me.txtCapacity.TabIndex = 50
+        Me.txtCapacity.TabStop = False
         '
         'txtWidth
         '
@@ -154,6 +156,7 @@ Partial Class FrmMain
         Me.txtWidth.ReadOnly = True
         Me.txtWidth.Size = New System.Drawing.Size(180, 20)
         Me.txtWidth.TabIndex = 60
+        Me.txtWidth.TabStop = False
         '
         'txtLength
         '
@@ -163,6 +166,7 @@ Partial Class FrmMain
         Me.txtLength.ReadOnly = True
         Me.txtLength.Size = New System.Drawing.Size(180, 20)
         Me.txtLength.TabIndex = 65
+        Me.txtLength.TabStop = False
         '
         'Label1
         '
@@ -212,6 +216,7 @@ Partial Class FrmMain
         Me.cbShowConnections.Name = "cbShowConnections"
         Me.cbShowConnections.Size = New System.Drawing.Size(115, 17)
         Me.cbShowConnections.TabIndex = 80
+        Me.cbShowConnections.TabStop = False
         Me.cbShowConnections.Text = "Show Connections"
         Me.cbShowConnections.UseVisualStyleBackColor = True
         '
@@ -223,6 +228,7 @@ Partial Class FrmMain
         Me.cbShowCells.Name = "cbShowCells"
         Me.cbShowCells.Size = New System.Drawing.Size(78, 17)
         Me.cbShowCells.TabIndex = 75
+        Me.cbShowCells.TabStop = False
         Me.cbShowCells.Text = "Show Cells"
         Me.cbShowCells.UseVisualStyleBackColor = True
         '
@@ -244,6 +250,7 @@ Partial Class FrmMain
         Me.txtWeight.ReadOnly = True
         Me.txtWeight.Size = New System.Drawing.Size(180, 20)
         Me.txtWeight.TabIndex = 55
+        Me.txtWeight.TabStop = False
         '
         'Label8
         '
@@ -263,6 +270,7 @@ Partial Class FrmMain
         Me.txtConfig.ReadOnly = True
         Me.txtConfig.Size = New System.Drawing.Size(180, 20)
         Me.txtConfig.TabIndex = 40
+        Me.txtConfig.TabStop = False
         '
         'txtSeries
         '
@@ -298,6 +306,7 @@ Partial Class FrmMain
         Me.txtHeight.ReadOnly = True
         Me.txtHeight.Size = New System.Drawing.Size(180, 20)
         Me.txtHeight.TabIndex = 70
+        Me.txtHeight.TabStop = False
         '
         'MsFile
         '
@@ -353,6 +362,7 @@ Partial Class FrmMain
         Me.btnParallelDown.Name = "btnParallelDown"
         Me.btnParallelDown.Size = New System.Drawing.Size(14, 10)
         Me.btnParallelDown.TabIndex = 16
+        Me.btnParallelDown.TabStop = False
         Me.btnParallelDown.UseVisualStyleBackColor = True
         '
         'btnParallelUp
@@ -364,6 +374,7 @@ Partial Class FrmMain
         Me.btnParallelUp.Name = "btnParallelUp"
         Me.btnParallelUp.Size = New System.Drawing.Size(14, 10)
         Me.btnParallelUp.TabIndex = 15
+        Me.btnParallelUp.TabStop = False
         Me.btnParallelUp.UseVisualStyleBackColor = True
         '
         'btnSeriesDown
@@ -375,6 +386,7 @@ Partial Class FrmMain
         Me.btnSeriesDown.Name = "btnSeriesDown"
         Me.btnSeriesDown.Size = New System.Drawing.Size(14, 10)
         Me.btnSeriesDown.TabIndex = 14
+        Me.btnSeriesDown.TabStop = False
         Me.btnSeriesDown.UseVisualStyleBackColor = True
         '
         'btnSeriesUp
@@ -386,6 +398,7 @@ Partial Class FrmMain
         Me.btnSeriesUp.Name = "btnSeriesUp"
         Me.btnSeriesUp.Size = New System.Drawing.Size(14, 10)
         Me.btnSeriesUp.TabIndex = 13
+        Me.btnSeriesUp.TabStop = False
         Me.btnSeriesUp.UseVisualStyleBackColor = True
         '
         'txtCellCount
@@ -396,6 +409,7 @@ Partial Class FrmMain
         Me.txtCellCount.ReadOnly = True
         Me.txtCellCount.Size = New System.Drawing.Size(180, 20)
         Me.txtCellCount.TabIndex = 20
+        Me.txtCellCount.TabStop = False
         '
         'Label6
         '
@@ -422,6 +436,7 @@ Partial Class FrmMain
         Me.txtTotalCost.Name = "txtTotalCost"
         Me.txtTotalCost.Size = New System.Drawing.Size(180, 20)
         Me.txtTotalCost.TabIndex = 25
+        Me.txtTotalCost.TabStop = False
         '
         'txtFreightCost
         '
@@ -448,6 +463,7 @@ Partial Class FrmMain
         Me.txtArrangement.ReadOnly = True
         Me.txtArrangement.Size = New System.Drawing.Size(180, 20)
         Me.txtArrangement.TabIndex = 30
+        Me.txtArrangement.TabStop = False
         '
         'Label10
         '
