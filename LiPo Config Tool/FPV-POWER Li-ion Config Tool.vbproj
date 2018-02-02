@@ -114,6 +114,14 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cells\CellConfiguration.vb" />
+    <Compile Include="Cells\Cube.vb" />
+    <Compile Include="Drawing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain Partial.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
