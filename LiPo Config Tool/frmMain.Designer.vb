@@ -50,9 +50,7 @@ Partial Class FrmMain
         Me.pbLogo = New System.Windows.Forms.PictureBox()
         Me.txtCellCount = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtCellCost = New System.Windows.Forms.TextBox()
         Me.txtTotalCost = New System.Windows.Forms.TextBox()
-        Me.txtFreightCost = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtArrangement = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -60,16 +58,26 @@ Partial Class FrmMain
         Me.Label13 = New System.Windows.Forms.Label()
         Me.numSeries = New System.Windows.Forms.NumericUpDown()
         Me.numParallel = New System.Windows.Forms.NumericUpDown()
+        Me.numFreightCost = New System.Windows.Forms.NumericUpDown()
+        Me.numCellCost = New System.Windows.Forms.NumericUpDown()
+        Me.gbPricing = New System.Windows.Forms.GroupBox()
+        Me.gbConfig = New System.Windows.Forms.GroupBox()
+        Me.gbData = New System.Windows.Forms.GroupBox()
         Me.MsMain.SuspendLayout()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numSeries, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numParallel, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numFreightCost, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numCellCost, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbPricing.SuspendLayout()
+        Me.gbConfig.SuspendLayout()
+        Me.gbData.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbl
         '
         Me.lbl.AutoSize = True
-        Me.lbl.Location = New System.Drawing.Point(12, 30)
+        Me.lbl.Location = New System.Drawing.Point(7, 24)
         Me.lbl.Name = "lbl"
         Me.lbl.Size = New System.Drawing.Size(39, 13)
         Me.lbl.TabIndex = 2
@@ -78,7 +86,7 @@ Partial Class FrmMain
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 56)
+        Me.Label2.Location = New System.Drawing.Point(7, 50)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 13)
         Me.Label2.TabIndex = 3
@@ -92,17 +100,17 @@ Partial Class FrmMain
         Me.gbMain.BackColor = System.Drawing.SystemColors.Control
         Me.gbMain.Location = New System.Drawing.Point(276, 27)
         Me.gbMain.Name = "gbMain"
-        Me.gbMain.Size = New System.Drawing.Size(403, 630)
+        Me.gbMain.Size = New System.Drawing.Size(321, 644)
         Me.gbMain.TabIndex = 12
         Me.gbMain.TabStop = False
         '
         'txtVoltage
         '
         Me.txtVoltage.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtVoltage.Location = New System.Drawing.Point(90, 453)
+        Me.txtVoltage.Location = New System.Drawing.Point(83, 345)
         Me.txtVoltage.Name = "txtVoltage"
         Me.txtVoltage.ReadOnly = True
-        Me.txtVoltage.Size = New System.Drawing.Size(180, 20)
+        Me.txtVoltage.Size = New System.Drawing.Size(174, 20)
         Me.txtVoltage.TabIndex = 45
         Me.txtVoltage.TabStop = False
         '
@@ -111,38 +119,39 @@ Partial Class FrmMain
         Me.lbConfigs.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lbConfigs.FormattingEnabled = True
-        Me.lbConfigs.Location = New System.Drawing.Point(12, 214)
+        Me.lbConfigs.Location = New System.Drawing.Point(5, 120)
+        Me.lbConfigs.MinimumSize = New System.Drawing.Size(4, 90)
         Me.lbConfigs.Name = "lbConfigs"
-        Me.lbConfigs.Size = New System.Drawing.Size(258, 95)
+        Me.lbConfigs.Size = New System.Drawing.Size(252, 82)
         Me.lbConfigs.TabIndex = 35
         '
         'txtCapacity
         '
         Me.txtCapacity.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtCapacity.Location = New System.Drawing.Point(90, 479)
+        Me.txtCapacity.Location = New System.Drawing.Point(83, 371)
         Me.txtCapacity.Name = "txtCapacity"
         Me.txtCapacity.ReadOnly = True
-        Me.txtCapacity.Size = New System.Drawing.Size(180, 20)
+        Me.txtCapacity.Size = New System.Drawing.Size(174, 20)
         Me.txtCapacity.TabIndex = 50
         Me.txtCapacity.TabStop = False
         '
         'txtWidth
         '
         Me.txtWidth.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtWidth.Location = New System.Drawing.Point(90, 531)
+        Me.txtWidth.Location = New System.Drawing.Point(83, 423)
         Me.txtWidth.Name = "txtWidth"
         Me.txtWidth.ReadOnly = True
-        Me.txtWidth.Size = New System.Drawing.Size(180, 20)
+        Me.txtWidth.Size = New System.Drawing.Size(174, 20)
         Me.txtWidth.TabIndex = 60
         Me.txtWidth.TabStop = False
         '
         'txtLength
         '
         Me.txtLength.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtLength.Location = New System.Drawing.Point(90, 557)
+        Me.txtLength.Location = New System.Drawing.Point(83, 449)
         Me.txtLength.Name = "txtLength"
         Me.txtLength.ReadOnly = True
-        Me.txtLength.Size = New System.Drawing.Size(180, 20)
+        Me.txtLength.Size = New System.Drawing.Size(174, 20)
         Me.txtLength.TabIndex = 65
         Me.txtLength.TabStop = False
         '
@@ -150,7 +159,7 @@ Partial Class FrmMain
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 456)
+        Me.Label1.Location = New System.Drawing.Point(5, 348)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(46, 13)
         Me.Label1.TabIndex = 11
@@ -160,7 +169,7 @@ Partial Class FrmMain
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 482)
+        Me.Label3.Location = New System.Drawing.Point(5, 374)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(51, 13)
         Me.Label3.TabIndex = 12
@@ -170,7 +179,7 @@ Partial Class FrmMain
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 534)
+        Me.Label4.Location = New System.Drawing.Point(5, 426)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(38, 13)
         Me.Label4.TabIndex = 13
@@ -180,7 +189,7 @@ Partial Class FrmMain
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 560)
+        Me.Label5.Location = New System.Drawing.Point(5, 452)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(43, 13)
         Me.Label5.TabIndex = 14
@@ -190,7 +199,7 @@ Partial Class FrmMain
         '
         Me.cbShowConnections.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cbShowConnections.AutoSize = True
-        Me.cbShowConnections.Location = New System.Drawing.Point(17, 640)
+        Me.cbShowConnections.Location = New System.Drawing.Point(17, 654)
         Me.cbShowConnections.Name = "cbShowConnections"
         Me.cbShowConnections.Size = New System.Drawing.Size(115, 17)
         Me.cbShowConnections.TabIndex = 80
@@ -202,7 +211,7 @@ Partial Class FrmMain
         '
         Me.cbShowCells.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cbShowCells.AutoSize = True
-        Me.cbShowCells.Location = New System.Drawing.Point(18, 617)
+        Me.cbShowCells.Location = New System.Drawing.Point(18, 631)
         Me.cbShowCells.Name = "cbShowCells"
         Me.cbShowCells.Size = New System.Drawing.Size(78, 17)
         Me.cbShowCells.TabIndex = 75
@@ -214,7 +223,7 @@ Partial Class FrmMain
         '
         Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 508)
+        Me.Label7.Location = New System.Drawing.Point(5, 400)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(44, 13)
         Me.Label7.TabIndex = 18
@@ -223,10 +232,10 @@ Partial Class FrmMain
         'txtWeight
         '
         Me.txtWeight.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtWeight.Location = New System.Drawing.Point(90, 505)
+        Me.txtWeight.Location = New System.Drawing.Point(83, 397)
         Me.txtWeight.Name = "txtWeight"
         Me.txtWeight.ReadOnly = True
-        Me.txtWeight.Size = New System.Drawing.Size(180, 20)
+        Me.txtWeight.Size = New System.Drawing.Size(174, 20)
         Me.txtWeight.TabIndex = 55
         Me.txtWeight.TabStop = False
         '
@@ -234,7 +243,7 @@ Partial Class FrmMain
         '
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(12, 430)
+        Me.Label8.Location = New System.Drawing.Point(5, 322)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(40, 13)
         Me.Label8.TabIndex = 21
@@ -243,10 +252,10 @@ Partial Class FrmMain
         'txtConfig
         '
         Me.txtConfig.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtConfig.Location = New System.Drawing.Point(90, 427)
+        Me.txtConfig.Location = New System.Drawing.Point(83, 319)
         Me.txtConfig.Name = "txtConfig"
         Me.txtConfig.ReadOnly = True
-        Me.txtConfig.Size = New System.Drawing.Size(180, 20)
+        Me.txtConfig.Size = New System.Drawing.Size(174, 20)
         Me.txtConfig.TabIndex = 40
         Me.txtConfig.TabStop = False
         '
@@ -254,7 +263,7 @@ Partial Class FrmMain
         '
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 587)
+        Me.Label9.Location = New System.Drawing.Point(5, 479)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(41, 13)
         Me.Label9.TabIndex = 25
@@ -263,10 +272,10 @@ Partial Class FrmMain
         'txtHeight
         '
         Me.txtHeight.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtHeight.Location = New System.Drawing.Point(90, 584)
+        Me.txtHeight.Location = New System.Drawing.Point(83, 476)
         Me.txtHeight.Name = "txtHeight"
         Me.txtHeight.ReadOnly = True
-        Me.txtHeight.Size = New System.Drawing.Size(180, 20)
+        Me.txtHeight.Size = New System.Drawing.Size(174, 20)
         Me.txtHeight.TabIndex = 70
         Me.txtHeight.TabStop = False
         '
@@ -300,7 +309,7 @@ Partial Class FrmMain
         Me.MsMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MsFile})
         Me.MsMain.Location = New System.Drawing.Point(0, 0)
         Me.MsMain.Name = "MsMain"
-        Me.MsMain.Size = New System.Drawing.Size(691, 24)
+        Me.MsMain.Size = New System.Drawing.Size(609, 24)
         Me.MsMain.TabIndex = 9
         Me.MsMain.Text = "MenuStrip1"
         '
@@ -309,61 +318,45 @@ Partial Class FrmMain
         Me.pbLogo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pbLogo.BackgroundImage = CType(resources.GetObject("pbLogo.BackgroundImage"), System.Drawing.Image)
         Me.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbLogo.Location = New System.Drawing.Point(12, 319)
+        Me.pbLogo.Location = New System.Drawing.Point(5, 211)
         Me.pbLogo.Name = "pbLogo"
-        Me.pbLogo.Size = New System.Drawing.Size(258, 100)
+        Me.pbLogo.Size = New System.Drawing.Size(252, 100)
         Me.pbLogo.TabIndex = 26
         Me.pbLogo.TabStop = False
         '
         'txtCellCount
         '
         Me.txtCellCount.Enabled = False
-        Me.txtCellCount.Location = New System.Drawing.Point(90, 133)
+        Me.txtCellCount.Location = New System.Drawing.Point(83, 27)
         Me.txtCellCount.Name = "txtCellCount"
         Me.txtCellCount.ReadOnly = True
-        Me.txtCellCount.Size = New System.Drawing.Size(180, 20)
+        Me.txtCellCount.Size = New System.Drawing.Size(174, 20)
         Me.txtCellCount.TabIndex = 20
         Me.txtCellCount.TabStop = False
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(12, 136)
+        Me.Label6.Location = New System.Drawing.Point(5, 30)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(58, 13)
         Me.Label6.TabIndex = 31
         Me.Label6.Text = "Cell Count:"
         '
-        'txtCellCost
-        '
-        Me.txtCellCost.BackColor = System.Drawing.SystemColors.Window
-        Me.txtCellCost.Location = New System.Drawing.Point(90, 107)
-        Me.txtCellCost.Name = "txtCellCost"
-        Me.txtCellCost.Size = New System.Drawing.Size(180, 20)
-        Me.txtCellCost.TabIndex = 15
-        '
         'txtTotalCost
         '
         Me.txtTotalCost.BackColor = System.Drawing.SystemColors.Control
         Me.txtTotalCost.Enabled = False
-        Me.txtTotalCost.Location = New System.Drawing.Point(90, 162)
+        Me.txtTotalCost.Location = New System.Drawing.Point(83, 56)
         Me.txtTotalCost.Name = "txtTotalCost"
-        Me.txtTotalCost.Size = New System.Drawing.Size(180, 20)
+        Me.txtTotalCost.Size = New System.Drawing.Size(174, 20)
         Me.txtTotalCost.TabIndex = 25
         Me.txtTotalCost.TabStop = False
-        '
-        'txtFreightCost
-        '
-        Me.txtFreightCost.BackColor = System.Drawing.SystemColors.Window
-        Me.txtFreightCost.Location = New System.Drawing.Point(90, 81)
-        Me.txtFreightCost.Name = "txtFreightCost"
-        Me.txtFreightCost.Size = New System.Drawing.Size(180, 20)
-        Me.txtFreightCost.TabIndex = 10
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(12, 165)
+        Me.Label11.Location = New System.Drawing.Point(5, 59)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(58, 13)
         Me.Label11.TabIndex = 36
@@ -372,17 +365,17 @@ Partial Class FrmMain
         'txtArrangement
         '
         Me.txtArrangement.Enabled = False
-        Me.txtArrangement.Location = New System.Drawing.Point(90, 188)
+        Me.txtArrangement.Location = New System.Drawing.Point(83, 82)
         Me.txtArrangement.Name = "txtArrangement"
         Me.txtArrangement.ReadOnly = True
-        Me.txtArrangement.Size = New System.Drawing.Size(180, 20)
+        Me.txtArrangement.Size = New System.Drawing.Size(174, 20)
         Me.txtArrangement.TabIndex = 30
         Me.txtArrangement.TabStop = False
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(12, 191)
+        Me.Label10.Location = New System.Drawing.Point(5, 85)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(70, 13)
         Me.Label10.TabIndex = 38
@@ -391,7 +384,7 @@ Partial Class FrmMain
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(13, 84)
+        Me.Label12.Location = New System.Drawing.Point(7, 52)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(65, 13)
         Me.Label12.TabIndex = 39
@@ -400,7 +393,7 @@ Partial Class FrmMain
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(12, 110)
+        Me.Label13.Location = New System.Drawing.Point(7, 24)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(59, 13)
         Me.Label13.TabIndex = 40
@@ -408,67 +401,118 @@ Partial Class FrmMain
         '
         'numSeries
         '
-        Me.numSeries.Location = New System.Drawing.Point(90, 28)
+        Me.numSeries.Location = New System.Drawing.Point(52, 22)
         Me.numSeries.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
         Me.numSeries.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.numSeries.Name = "numSeries"
-        Me.numSeries.Size = New System.Drawing.Size(90, 20)
+        Me.numSeries.Size = New System.Drawing.Size(50, 20)
         Me.numSeries.TabIndex = 1
         Me.numSeries.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'numParallel
         '
-        Me.numParallel.Location = New System.Drawing.Point(90, 54)
+        Me.numParallel.Location = New System.Drawing.Point(52, 48)
         Me.numParallel.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
         Me.numParallel.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.numParallel.Name = "numParallel"
-        Me.numParallel.Size = New System.Drawing.Size(90, 20)
+        Me.numParallel.Size = New System.Drawing.Size(50, 20)
         Me.numParallel.TabIndex = 3
         Me.numParallel.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'numFreightCost
+        '
+        Me.numFreightCost.DecimalPlaces = 2
+        Me.numFreightCost.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.numFreightCost.Location = New System.Drawing.Point(84, 48)
+        Me.numFreightCost.Name = "numFreightCost"
+        Me.numFreightCost.Size = New System.Drawing.Size(57, 20)
+        Me.numFreightCost.TabIndex = 81
+        '
+        'numCellCost
+        '
+        Me.numCellCost.DecimalPlaces = 2
+        Me.numCellCost.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.numCellCost.Location = New System.Drawing.Point(84, 22)
+        Me.numCellCost.Name = "numCellCost"
+        Me.numCellCost.Size = New System.Drawing.Size(57, 20)
+        Me.numCellCost.TabIndex = 82
+        '
+        'gbPricing
+        '
+        Me.gbPricing.Controls.Add(Me.Label12)
+        Me.gbPricing.Controls.Add(Me.numCellCost)
+        Me.gbPricing.Controls.Add(Me.Label13)
+        Me.gbPricing.Controls.Add(Me.numFreightCost)
+        Me.gbPricing.Location = New System.Drawing.Point(120, 27)
+        Me.gbPricing.Name = "gbPricing"
+        Me.gbPricing.Size = New System.Drawing.Size(150, 78)
+        Me.gbPricing.TabIndex = 83
+        Me.gbPricing.TabStop = False
+        Me.gbPricing.Text = "Pricing"
+        '
+        'gbConfig
+        '
+        Me.gbConfig.Controls.Add(Me.Label2)
+        Me.gbConfig.Controls.Add(Me.lbl)
+        Me.gbConfig.Controls.Add(Me.numParallel)
+        Me.gbConfig.Controls.Add(Me.numSeries)
+        Me.gbConfig.Location = New System.Drawing.Point(7, 27)
+        Me.gbConfig.Name = "gbConfig"
+        Me.gbConfig.Size = New System.Drawing.Size(107, 78)
+        Me.gbConfig.TabIndex = 84
+        Me.gbConfig.TabStop = False
+        Me.gbConfig.Text = "Configuration"
+        '
+        'gbData
+        '
+        Me.gbData.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.gbData.Controls.Add(Me.lbConfigs)
+        Me.gbData.Controls.Add(Me.Label3)
+        Me.gbData.Controls.Add(Me.txtHeight)
+        Me.gbData.Controls.Add(Me.txtArrangement)
+        Me.gbData.Controls.Add(Me.Label1)
+        Me.gbData.Controls.Add(Me.Label10)
+        Me.gbData.Controls.Add(Me.Label9)
+        Me.gbData.Controls.Add(Me.Label11)
+        Me.gbData.Controls.Add(Me.txtConfig)
+        Me.gbData.Controls.Add(Me.txtTotalCost)
+        Me.gbData.Controls.Add(Me.txtVoltage)
+        Me.gbData.Controls.Add(Me.txtCapacity)
+        Me.gbData.Controls.Add(Me.Label8)
+        Me.gbData.Controls.Add(Me.txtWidth)
+        Me.gbData.Controls.Add(Me.Label7)
+        Me.gbData.Controls.Add(Me.txtLength)
+        Me.gbData.Controls.Add(Me.pbLogo)
+        Me.gbData.Controls.Add(Me.Label4)
+        Me.gbData.Controls.Add(Me.Label5)
+        Me.gbData.Controls.Add(Me.txtCellCount)
+        Me.gbData.Controls.Add(Me.Label6)
+        Me.gbData.Controls.Add(Me.txtWeight)
+        Me.gbData.Location = New System.Drawing.Point(7, 111)
+        Me.gbData.MinimumSize = New System.Drawing.Size(0, 506)
+        Me.gbData.Name = "gbData"
+        Me.gbData.Size = New System.Drawing.Size(263, 506)
+        Me.gbData.TabIndex = 0
+        Me.gbData.TabStop = False
+        Me.gbData.Text = "Data"
         '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(691, 668)
-        Me.Controls.Add(Me.numParallel)
-        Me.Controls.Add(Me.numSeries)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.txtArrangement)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.txtFreightCost)
-        Me.Controls.Add(Me.txtTotalCost)
-        Me.Controls.Add(Me.txtCellCost)
-        Me.Controls.Add(Me.txtCapacity)
-        Me.Controls.Add(Me.txtWidth)
-        Me.Controls.Add(Me.txtLength)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txtCellCount)
-        Me.Controls.Add(Me.txtWeight)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.pbLogo)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.txtVoltage)
-        Me.Controls.Add(Me.txtConfig)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtHeight)
+        Me.ClientSize = New System.Drawing.Size(609, 682)
+        Me.Controls.Add(Me.gbData)
+        Me.Controls.Add(Me.gbConfig)
+        Me.Controls.Add(Me.gbPricing)
         Me.Controls.Add(Me.cbShowConnections)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbShowCells)
-        Me.Controls.Add(Me.lbConfigs)
         Me.Controls.Add(Me.MsMain)
         Me.Controls.Add(Me.gbMain)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.lbl)
         Me.DoubleBuffered = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.MinimumSize = New System.Drawing.Size(298, 707)
+        Me.MinimumSize = New System.Drawing.Size(298, 721)
         Me.Name = "FrmMain"
         Me.Text = "FPV-POWER Li-ion Config Tool"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -477,6 +521,14 @@ Partial Class FrmMain
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numSeries, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numParallel, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numFreightCost, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numCellCost, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbPricing.ResumeLayout(False)
+        Me.gbPricing.PerformLayout()
+        Me.gbConfig.ResumeLayout(False)
+        Me.gbConfig.PerformLayout()
+        Me.gbData.ResumeLayout(False)
+        Me.gbData.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -508,9 +560,7 @@ Partial Class FrmMain
     Friend WithEvents pbLogo As PictureBox
     Friend WithEvents txtCellCount As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtCellCost As TextBox
     Friend WithEvents txtTotalCost As TextBox
-    Friend WithEvents txtFreightCost As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents txtArrangement As TextBox
     Friend WithEvents Label10 As Label
@@ -518,4 +568,9 @@ Partial Class FrmMain
     Friend WithEvents Label13 As Label
     Friend WithEvents numSeries As NumericUpDown
     Friend WithEvents numParallel As NumericUpDown
+    Friend WithEvents numFreightCost As NumericUpDown
+    Friend WithEvents numCellCost As NumericUpDown
+    Friend WithEvents gbPricing As GroupBox
+    Friend WithEvents gbConfig As GroupBox
+    Friend WithEvents gbData As GroupBox
 End Class

@@ -7,18 +7,37 @@ Public Class FrmMain
     ReadOnly listLength As New List(Of Integer)
     Dim parallelVal As Integer
     Dim seriesVal As Integer
-    Dim canProcess As Boolean = False
 
-    Private Sub Start()
-        'INIT
-        If Not canProcess Then Exit Sub
-        If numSeries.Text = "" OrElse numParallel.Text = "" Then Exit Sub
+    Dim cellCost As Double
+    Dim freightCost As Double = 0.00
+    Private Sub LoadCosts()
+        cellCost = Val(numCellCost.Text)
+        freightCost = Val(numFreightCost.Text)
+    End Sub
 
+    Private Function ValidFields() As Boolean
+        If numSeries.Text = "" OrElse numParallel.Text = "" Then Return False
+        If numCellCost.Text = "" OrElse Val(numCellCost.Text) < 0.00 Then Return False
+
+        Return True
+    End Function
+
+    Private Sub Reset()
         gbMain.Controls.Clear() 'clear all cells inside group box
         lbConfigs.Items.Clear()
         displayDataList.Clear()
         listWidth.Clear()
         listLength.Clear()
+
+        parallelVal = numParallel.Value
+        seriesVal = numSeries.Value
+    End Sub
+
+    Private Sub Start()
+        'INIT
+        Reset()
+        LoadCosts()
+        If Not ValidFields() Then Exit Sub
 
 
 
@@ -36,13 +55,11 @@ Public Class FrmMain
         End If
 
         listWidth.AddRange(comb.GetRange(0, comb.Count / 2))
+
         listLength.AddRange(comb.GetRange(comb.Count / 2, comb.Count / 2))
         listLength.Reverse()
 
         LoadInfo()
-
-        DisplayCosts()
-
 
         If lbConfigs.Items.Count > 0 Then
             lbConfigs.SelectedIndex = 0
@@ -64,6 +81,10 @@ Public Class FrmMain
 
         cbShowConnections.Enabled = cbShowCells.Checked
         LoadSettings()
+
+        For Each numericControl As NumericUpDown In Controls.OfType(Of NumericUpDown)
+            AddHandler numericControl.ValueChanged, AddressOf Start
+        Next
     End Sub
 
     Private Function Divisible(inputNum As Integer, divisor As Integer)
@@ -230,16 +251,6 @@ Public Class FrmMain
         End If
     End Sub
 
-    Private Sub numSeries_ValueChanged(sender As Object, e As EventArgs) Handles numSeries.ValueChanged
-        seriesVal = numSeries.Value
-        Start()
-    End Sub
-
-    Private Sub numParallel_ValueChanged(sender As Object, e As EventArgs) Handles numParallel.ValueChanged
-        parallelVal = numParallel.Value
-        Start()
-    End Sub
-
     Private Sub txtSeries_KeyDown(sender As Object, e As KeyEventArgs)
         If e.KeyCode = Keys.Tab Then
             numParallel.Select(0, numParallel.Text.Length - 1)
@@ -276,9 +287,7 @@ Public Class FrmMain
     End Function
 
     Private Sub lbConfigs_MouseDown(sender As Object, e As MouseEventArgs) Handles lbConfigs.MouseDown
-        If lbConfigs.IndexFromPoint(e.Location) = -1 Then
-            lbConfigs.SelectedIndex = -1
-        End If
+        If lbConfigs.IndexFromPoint(e.Location) = -1 Then lbConfigs.SelectedIndex = -1
     End Sub
 
     Private Sub frmMain_ClientSizeChanged(sender As Object, e As EventArgs) Handles MyBase.ClientSizeChanged
@@ -289,37 +298,17 @@ Public Class FrmMain
         FrmSettings.ShowDialog()
     End Sub
 
-    Dim cellCost As Double
-    Dim freightCost As Double = 0.00
-    Private Sub CostChanged(sender As Object, e As EventArgs) Handles txtFreightCost.TextChanged, txtCellCost.TextChanged
-
-        canProcess = IsNumeric(txtCellCost.Text)
-
-        If IsNumeric(txtCellCost.Text) Then
-            cellCost = Val(txtCellCost.Text)
-        Else
-            Exit Sub
-        End If
-
-        If IsNumeric(txtFreightCost.Text) Then freightCost = Val(txtFreightCost.Text)
-
-        Start()
-    End Sub
-
-    Private Sub DisplayCosts()
-        Dim cellCount As Integer = parallelVal * seriesVal
-
-        Dim totalFreightCost As Double
-        totalFreightCost = freightCost / 1000 * Val(My.Resources.CellWeight)
-
-        txtTotalCost.Text = "$" & (txtCellCost.Text + totalFreightCost) * cellCount
-    End Sub
-
-    Private Sub txtFreightCost_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFreightCost.KeyPress, txtCellCost.KeyPress
+    Private Sub txtFreightCost_KeyPress(sender As Object, e As KeyPressEventArgs)
         'check if new character is digit or decimal point
         If Not Char.IsDigit(e.KeyChar) AndAlso Not e.KeyChar = Convert.ToChar(Keys.Back) AndAlso Not e.KeyChar = "." Then
             e.KeyChar = ChrW(0)
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub TextBoxEnter(sender As Object, e As EventArgs) Handles numSeries.Enter, numParallel.Enter
+        Dim sendNumObj = TryCast(sender, NumericUpDown)
+
+        numSeries.Select(0, numSeries.Text.Length)
     End Sub
 End Class

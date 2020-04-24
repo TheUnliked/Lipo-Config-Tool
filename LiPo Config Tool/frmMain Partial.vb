@@ -16,6 +16,15 @@
                 lbConfigs.Items.Add(.Dimensions.Height & "mm (H) x " & .Dimensions.Length & "mm (L) x " & .Dimensions.Width & "mm (W)")
             End With
         Next
+
+
+        'costs
+        Dim cellCount As Integer = parallelVal * seriesVal
+
+        Dim totalFreightCost As Double
+        totalFreightCost = freightCost / 1000 * Val(My.Resources.CellWeight)
+
+        txtTotalCost.Text = "$" & (numCellCost.Text + totalFreightCost) * cellCount
     End Sub
 
     Public Sub LoadSettings()
